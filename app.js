@@ -89,6 +89,7 @@ class DrumKit {
         break;
     }
   }
+
   mute(e) {
     const muteIndex = e.target.getAttribute("data-track");
     e.target.classList.toggle("active");

@@ -5,6 +5,7 @@
 }
 body {
     font-family: sans-serif;
+    /*background: rgb(48, 62, 70);*/
 }
 i, svg {
     pointer-events: none;
@@ -56,17 +57,19 @@ h1 {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 .kick_track, .snare_track, .hihat_track, .clap_track {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 70%;
-    padding: 1.4rem 0rem;
+    margin: 1.4rem 0rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 }
 .kick, .snare, .hihat, .clap {
     display: flex;
+    justify-content: space-between;
 }
 .controls {
     display: flex;
@@ -88,13 +91,12 @@ h1 {
     transition: all 0.5s ease;
 }
 .play {
-    padding: 0.7rem 1.4rem;
+    padding: 0.7rem 3rem;
     font-size: 1.5rem;
     background: #344955;
     color: white;
     border: none;
     cursor: pointer;
-    margin-top: 3rem;
 }
 select {
     padding: 1rem;
@@ -106,7 +108,8 @@ select {
 }
 .tempo {
     margin: 1rem;
-    width: 30%;
+    flex-basis: 30%;
+    text-align: left;
 }
 .tempo_slider {
     padding: 0.2rem;
@@ -119,11 +122,21 @@ select {
 }
 .tempo p {
     font-size: 1.5rem;
-    margin: 1rem;
+    margin: 0rem 0.5rem;
     text-align: center;
 }
-
-
+.container {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 1rem;
+    align-items: baseline;
+}
+.button {
+    flex-basis: 20%;
+    text-align: center;
+}
 
 @keyframes playTrack {
     from{
@@ -133,3 +146,127 @@ select {
         transform: scale(1.2)
     }
 }
+
+@media (max-width: 1610px) {
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+       width: 80%;
+    }
+    .header {
+        width: 100%;
+        text-align: center;
+        
+    }
+}
+@media (max-width: 1430px) {
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+       width: 90%;
+    }
+   
+}
+@media (max-width: 1255px) {
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+       width: 95%;
+    }  
+}
+@media (max-width: 1162px) {
+    .sequencer {
+        justify-content: center;
+    }
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+       flex-wrap: wrap;
+       max-width: 70%;
+       border: none;
+    }  
+    .kick, .snare, .hihat, .clap {
+        width: 100%;
+    }
+    .controls {
+        margin: 0;
+        justify-content: left;
+    }
+    .controls button {
+        margin-left: 1rem;
+    }  
+  
+}
+@media (max-width: 1096px) {
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+        max-width: 80%;  
+     } 
+}
+@media (max-width: 959px) {
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+        max-width: 90%;  
+     }  
+}
+@media (max-width: 856px) {
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+        width: 80%;  
+        
+     }  
+}
+@media (max-width: 808px) {
+    .kick-pad, .snare-pad, .hihat-pad, .clap-pad {
+        width: 4rem;
+        height: 4rem;
+    }
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+        width: 90%;    
+     } 
+     .tempo {
+        flex-basis: 50%;
+     }
+}
+@media (max-width: 667px) {
+    .sequencer {
+        padding-left: 1rem; 
+    }
+    .kick-pad, .snare-pad, .hihat-pad, .clap-pad {
+        width: 3.5rem;
+        height: 4rem;
+    } 
+    .controls h1 {
+        font-size: 1.8rem;
+    }
+    .controls button{
+        padding: 0.8rem;
+    }
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+        width: 100%;  
+     } 
+     .container {
+        margin: 0;
+     }
+     .play {
+        margin: 0;
+     }
+}
+@media (max-width: 515px) {
+    .kick-pad, .snare-pad, .hihat-pad, .clap-pad {
+        width: 4rem;
+        height: 4rem;
+    } 
+    .kick_track, .snare_track, .hihat_track, .clap_track {
+        margin: 1rem 0rem;
+    }
+    .play {
+        margin: 0rem;
+    }
+    .container {
+        flex-wrap: wrap;
+    }
+    .tempo {
+        flex-basis: 100%;
+    }
+    .sequencer {
+        padding-left: 0rem;
+    }
+}
+@media (max-width: 358px) {
+    select {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+}
+
+
