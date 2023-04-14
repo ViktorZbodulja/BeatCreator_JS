@@ -261,6 +261,8 @@ select {
     .kick-pad, .snare-pad, .hihat-pad, .clap-pad {
         width: 4rem;
         height: 4rem;
+        margin: 1rem 0.4rem;
+           
     } 
     .kick_track, .snare_track, .hihat_track, .clap_track {
         margin: 1rem 0rem;
@@ -283,6 +285,9 @@ select {
         padding: 0.7rem;
         font-size: 0.9rem;
     }
+    .kick-pad, .snare-pad, .hihat-pad, .clap-pad {
+        margin: 1rem 0.3rem;     
+    } 
 }
 
 
