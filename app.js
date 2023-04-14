@@ -13,9 +13,20 @@ class DrumKit {
     this.index = 0;
     this.bpm = 150;
     this.isPlaying = null;
+    this.isDarkMode = false;
     this.selects = document.querySelectorAll("select");
     this.muteBtns = document.querySelectorAll(".mute");
     this.tempoSlider = document.querySelector(".tempo_slider");
+    //dark mode
+    this.lightBtn = document.querySelector(".light");
+    this.body = document.querySelector("body");
+    this.h1Elements = document.querySelectorAll("h1");
+    this.allButtons = document.querySelectorAll("button");
+    this.title = document.querySelector(".title");
+    this.tempo = document.querySelector("p");
+    this.border = document.querySelectorAll(
+      ".kick_track, .snare_track, .hihat_track, .clap_track"
+    );
   }
   activePad() {
     this.classList.toggle("active");
@@ -69,6 +80,41 @@ class DrumKit {
     } else {
       this.playBtn.innerHTML = "Play";
       this.playBtn.classList.remove("active");
+    }
+  }
+  /////////////////////////////////////////////
+  updateLightBtn() {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      this.body.style.backgroundColor = "rgb(48, 62, 70)";
+      this.h1Elements.forEach((h1) => {
+        h1.style.color = "#CCCCCC";
+      });
+      this.allButtons.forEach((btn) => {
+        btn.style.background = "rgb(228, 227, 227)";
+        btn.style.color = "#344955";
+      });
+      this.title.style.color = "white";
+      this.tempo.style.color = "white";
+      this.border.forEach((b) => {
+        b.style.borderBottom = "1px solid rgba(255, 255, 255, 0.5)";
+      });
+      this.lightBtn.innerHTML = "Light Mode";
+    } else {
+      this.body.style.backgroundColor = "";
+      this.h1Elements.forEach((h1) => {
+        h1.style.color = "";
+      });
+      this.allButtons.forEach((btn) => {
+        btn.style.background = "";
+        btn.style.color = "";
+      });
+      this.title.style.color = "";
+      this.tempo.style.color = "";
+      this.border.forEach((b) => {
+        b.style.borderBottom = "";
+      });
+      this.lightBtn.innerHTML = "Dark Mode";
     }
   }
   changeSound(e) {
@@ -179,4 +225,7 @@ drumKit.tempoSlider.addEventListener("input", function (e) {
 });
 drumKit.tempoSlider.addEventListener("change", function (e) {
   drumKit.updateTempo(e);
+});
+drumKit.lightBtn.addEventListener("click", function () {
+  drumKit.updateLightBtn();
 });
