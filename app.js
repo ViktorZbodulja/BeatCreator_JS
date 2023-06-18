@@ -21,7 +21,10 @@ class DrumKit {
     this.lightBtn = document.querySelector(".light");
     this.body = document.querySelector("body");
     this.h1Elements = document.querySelectorAll("h1");
-    this.allButtons = document.querySelectorAll("button");
+    this.playButton = document.querySelector(".play");
+    this.muteButtons = document.querySelectorAll(
+      ".kick-volume, .snare-volume, .hihat-volume, .clap-volume"
+    );
     this.title = document.querySelector(".title");
     this.tempo = document.querySelector("p");
     this.border = document.querySelectorAll(
@@ -82,7 +85,7 @@ class DrumKit {
       this.playBtn.classList.remove("active");
     }
   }
-  /////////////////////////////////////////////
+  //Dark mode
   updateLightBtn() {
     this.isDarkMode = !this.isDarkMode;
     if (this.isDarkMode) {
@@ -90,31 +93,39 @@ class DrumKit {
       this.h1Elements.forEach((h1) => {
         h1.style.color = "#CCCCCC";
       });
-      this.allButtons.forEach((btn) => {
+      this.playButton.style.background = "rgb(228, 227, 227)";
+      this.playButton.style.color = "#344955";
+      this.lightBtn.style.background = "rgb(228, 227, 227)";
+      this.lightBtn.style.color = "#344955";
+      this.title.style.color = "white";
+      this.tempo.style.color = "white";
+      this.muteButtons.forEach((btn) => {
         btn.style.background = "rgb(228, 227, 227)";
         btn.style.color = "#344955";
       });
-      this.title.style.color = "white";
-      this.tempo.style.color = "white";
       this.border.forEach((b) => {
         b.style.borderBottom = "1px solid rgba(255, 255, 255, 0.5)";
       });
-      this.lightBtn.innerHTML = "Light Mode";
+      this.lightBtn.innerHTML = "Dark Mode";
     } else {
       this.body.style.backgroundColor = "";
       this.h1Elements.forEach((h1) => {
         h1.style.color = "";
       });
-      this.allButtons.forEach((btn) => {
+      this.playButton.style.background = "";
+      this.playButton.style.color = "";
+      this.muteButtons.forEach((btn) => {
         btn.style.background = "";
         btn.style.color = "";
       });
+      this.lightBtn.style.background = "";
+      this.lightBtn.style.color = "";
       this.title.style.color = "";
       this.tempo.style.color = "";
       this.border.forEach((b) => {
         b.style.borderBottom = "";
       });
-      this.lightBtn.innerHTML = "Dark Mode";
+      this.lightBtn.innerHTML = "Light Mode";
     }
   }
   changeSound(e) {
